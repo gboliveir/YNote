@@ -1,16 +1,12 @@
+import { UlStyleComponent, ButtonStyledComponent } from "./styles";
+
 import editImg from '../../assets/edit.svg';
 import trashCanImg from '../../assets/trashCan.svg';
 import bottomArrow from '../../assets/bottomArrow.svg';
 
-import { HeaderStyleComponent, UlStyleComponent, ButtonStyledComponent } from "./style";
-
-export function YouNote() {
+export function Notepad() {
     return(
         <>
-            <HeaderStyleComponent>
-                <h1>YourNote</h1>
-            </HeaderStyleComponent>
-
             <UlStyleComponent>
                 <li>
                     <h2>Lista de compras</h2>
@@ -23,6 +19,6 @@ export function YouNote() {
             </UlStyleComponent>
 
             <ButtonStyledComponent type="button">+</ButtonStyledComponent>
-        </> 
+        </>
     );
 }

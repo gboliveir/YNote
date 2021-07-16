@@ -1,11 +1,13 @@
-import { YouNote } from "./components/YourNote";
+import { Header } from './components/Header';
+import { Notepad } from './components/Notepad';
 
 import { GlobalStyle } from "./styles/global";
 
 export function App() {
   return (
     <>
-      <YouNote />
+      <Header />
+      <Notepad />
       <GlobalStyle />
     </>
   );
