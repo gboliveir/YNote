@@ -2,7 +2,7 @@ import editImg from '../../assets/edit.svg';
 import trashCanImg from '../../assets/trashCan.svg';
 import bottomArrow from '../../assets/bottomArrow.svg';
 
-import { HeaderStyleComponent, UlStyleComponent } from "./style";
+import { HeaderStyleComponent, UlStyleComponent, ButtonStyledComponent } from "./style";
 
 export function YouNote() {
     return(
@@ -21,6 +21,8 @@ export function YouNote() {
                     </div>
                 </li>
             </UlStyleComponent>
+
+            <ButtonStyledComponent type="button">+</ButtonStyledComponent>
         </> 
     );
 }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { transparentize } from "polished";
 
 export const HeaderStyleComponent = styled.header`
     display: flex;
@@ -14,6 +15,7 @@ export const HeaderStyleComponent = styled.header`
 `;
 
 export const UlStyleComponent = styled.ul`
+    position: relative;
     max-width: 1280px;
     margin: 2rem auto 0;
     padding: 0 1rem;
@@ -37,6 +39,36 @@ export const UlStyleComponent = styled.ul`
             height: 20px;
             width: 20px;
             margin-right: 1rem;
+            cursor: pointer;
+
+            transition: opacity 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
         }
+    }
+`;
+
+export const ButtonStyledComponent = styled.button`
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    height: 4rem;
+    width: 4rem;
+    
+    border: none;
+    border-radius: 50%;
+    
+    background: var(--purple);
+    color: white;
+    
+    font-weight: 500;
+    font-size: 2rem;
+
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: ${transparentize(0.2, '#4B0082')};
     }
 `;
