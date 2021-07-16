@@ -1,9 +1,11 @@
+import { YouNote } from "./components/YourNote";
+
 import { GlobalStyle } from "./styles/global";
 
 export function App() {
   return (
     <>
-      My APP
+      <YouNote />
       <GlobalStyle />
     </>
   );
