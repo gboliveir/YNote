@@ -1,10 +1,26 @@
-import { Container } from "./style";
+import editImg from '../../assets/edit.svg';
+import trashCanImg from '../../assets/trashCan.svg';
+import bottomArrow from '../../assets/bottomArrow.svg';
+
+import { HeaderStyleComponent, UlStyleComponent } from "./style";
 
 export function YouNote() {
     return(
-        <Container>
-            <h1>YourNote</h1>
-        </Container>
-        
+        <>
+            <HeaderStyleComponent>
+                <h1>YourNote</h1>
+            </HeaderStyleComponent>
+
+            <UlStyleComponent>
+                <li>
+                    <h2>Lista de compras</h2>
+                    <div>
+                        <img src={editImg} alt="" />
+                        <img src={bottomArrow} alt="" />
+                        <img src={trashCanImg} alt="" />
+                    </div>
+                </li>
+            </UlStyleComponent>
+        </> 
     );
 }
