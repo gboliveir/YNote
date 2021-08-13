@@ -2,7 +2,7 @@ import { Header } from './components/Header';
 import { Notepad } from './components/Notepad';
 import Modal from 'react-modal';
 
-import { GlobalStyle, ButtonStyledComponent } from "./styles/global";
+import { GlobalStyle, ButtonStyledComponent } from "./global";
 import { useState } from 'react';
 
 export function App() {
