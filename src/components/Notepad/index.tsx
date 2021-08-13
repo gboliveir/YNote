@@ -1,4 +1,4 @@
-import { UlStyleComponent, ButtonStyledComponent } from "./styles";
+import { UlStyleComponent } from "./styles";
 import { Note } from './Note';
 
 export function Notepad() {
@@ -7,8 +7,6 @@ export function Notepad() {
       <UlStyleComponent>
         <Note />
       </UlStyleComponent>
-
-      <ButtonStyledComponent type="button">+</ButtonStyledComponent>
     </>
   );
 }
