@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
+interface TextInputAreaProps {
+  isActive: string
+}
+
+export const Container = styled.form<TextInputAreaProps>`
   width: 50rem;
   background-color: white; 
   padding: 1.5rem;
@@ -43,17 +47,14 @@ export const Container = styled.form`
     input, textarea {
       position: relative;
       height: 3rem;
-      border: none;
       background-color: #f0f0f0;
       padding: 0 1rem;
       font-size: 1rem;
       outline: none;
-      border-radius: .25rem;
+      border-radius: 0.25rem;
+      border: none;
 
-      &.active {
-        color: var(--purple);
-      }
-
+      // implementar
       &.active::after {
         content: '';
         height: 3px;
@@ -92,5 +93,4 @@ export const Container = styled.form`
       opacity: 0.8;
     }
   }
-  
 `;

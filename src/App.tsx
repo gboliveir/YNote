@@ -5,22 +5,22 @@ import { NotepadModal } from './components/Modal';
 import { GlobalStyle, ButtonStyledComponent } from "./global";
 import { useState } from 'react';
 
-interface NoteInfoData {
+interface NoteData {
   title: string,
   content: string
 }
 
 export function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [noteInfo, setNoteInfo] = useState({} as NoteInfoData);
+  const [noteCollection, setNoteCollection] = useState<NoteData[]>([]);
 
   return (
     <>
       <Header />
-      <Notepad />
+      <Notepad noteCollection={noteCollection}/>
       <NotepadModal 
-        noteInfo={noteInfo} 
-        setNoteInfo={setNoteInfo} 
+        noteCollection={noteCollection} 
+        setNoteCollection={setNoteCollection} 
         isOpen={isOpen} 
         onRequestClose={() => setIsOpen(false)}
       />
