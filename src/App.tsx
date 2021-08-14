@@ -1,27 +1,30 @@
 import { Header } from './components/Header';
 import { Notepad } from './components/Notepad';
-import Modal from 'react-modal';
+import { NotepadModal } from './components/Modal';
 
-import { GlobalStyle, ButtonStyledComponent } from "./styles/global";
+import { GlobalStyle, ButtonStyledComponent } from "./global";
 import { useState } from 'react';
 
-export function App() {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+interface NoteData {
+  title: string,
+  content: string
+}
 
+export function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [noteCollection, setNoteCollection] = useState<NoteData[]>([]);
 
   return (
     <>
       <Header />
-
-      <Notepad />
-
-      <Modal 
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
+      <Notepad noteCollection={noteCollection}/>
+      <NotepadModal 
+        noteCollection={noteCollection} 
+        setNoteCollection={setNoteCollection} 
+        isOpen={isOpen} 
+        onRequestClose={() => setIsOpen(false)}
       />
-
-      <ButtonStyledComponent onClick={() => setIsModalOpen(true)}type="button">+</ButtonStyledComponent>    
-    
+      <ButtonStyledComponent onClick={() => setIsOpen(true)}>+</ButtonStyledComponent>    
       <GlobalStyle />
     </>
   );
