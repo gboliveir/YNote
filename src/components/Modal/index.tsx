@@ -3,7 +3,6 @@ import { FormEvent, MouseEvent } from 'react';
 import exitIcon from "../../assets/exit.svg";
 import { Container } from './styles';
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 Modal.setAppElement('#root');
 
@@ -28,10 +27,6 @@ export function NotepadModal({
   const [noteTitle, setNoteTitle] = useState('');
   const [noteContent, setNoteContent] = useState('');
   const [isActive, setIsActive] = useState('input');
-
-  useEffect(() => {
-    console.log(noteCollection);
-  })
 
   function handleSubmitForm(e: FormEvent) {
     e.preventDefault();
