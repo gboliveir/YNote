@@ -6,6 +6,7 @@ import { GlobalStyle, ButtonStyledComponent } from "./global";
 import { useState } from 'react';
 
 interface NoteData {
+  id: number,
   title: string,
   content: string
 }
@@ -17,9 +18,9 @@ export function App() {
   return (
     <>
       <Header />
-      <Notepad noteCollection={noteCollection}/>
+      <Notepad noteCollection={noteCollection} setNoteCollection={setNoteCollection}/>
       <NotepadModal 
-        noteCollection={noteCollection} 
+        noteCollection={noteCollection}
         setNoteCollection={setNoteCollection} 
         isOpen={isOpen} 
         onRequestClose={() => setIsOpen(false)}

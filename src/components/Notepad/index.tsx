@@ -4,22 +4,24 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 interface NoteData {
+  id: number,
   title: string,
   content: string
 }
 
 interface NotepadProps {
-  noteCollection: NoteData[]
+  noteCollection: NoteData[],
+  setNoteCollection: (note: NoteData[]) => void
 }
 
-export function Notepad({ noteCollection }: NotepadProps) {
+export function Notepad({ noteCollection, setNoteCollection }: NotepadProps) {
   const [isNoteCollectionVoid, setIsNoteCollectionVoid] = useState(
     noteCollection.length === 0 ? true : false
   );
 
   useEffect(() => {
     setIsNoteCollectionVoid(noteCollection.length === 0 ? true : false);
-  },[noteCollection])
+  },[noteCollection]);
 
   return(
     <>
@@ -27,7 +29,12 @@ export function Notepad({ noteCollection }: NotepadProps) {
         <main>
           <UlStyleComponent>
             {noteCollection.map(note => 
-              <Note key={note.title} title={note.title} content={note.content}/>
+              <Note 
+                key={note.id} 
+                note={note}
+                noteCollection={noteCollection}
+                setNoteCollection={setNoteCollection}
+              />
             )}
           </UlStyleComponent>
         </main>

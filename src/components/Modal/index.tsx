@@ -7,6 +7,7 @@ import { useState } from 'react';
 Modal.setAppElement('#root');
 
 interface NoteData {
+  id: number,
   title: string,
   content: string
 }
@@ -28,6 +29,10 @@ export function NotepadModal({
   const [noteContent, setNoteContent] = useState('');
   const [isActive, setIsActive] = useState('input');
 
+  const getKey = () => {
+    return Math.random();
+  }
+
   function handleSubmitForm(e: FormEvent) {
     e.preventDefault();
 
@@ -38,6 +43,7 @@ export function NotepadModal({
 
     try {
       setNoteCollection([...noteCollection, {
+        id: getKey(), 
         title: noteTitle,
         content: noteContent
       }]);

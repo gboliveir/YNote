@@ -4,12 +4,24 @@ import bottomArrow from '../../../assets/bottomArrow.svg';
 
 import { LiStyleComponent } from "./styles";
 
-interface NoteProps {
+interface NoteData {
+  id: number,
   title: string,
   content: string
 }
 
-export function Note(note: NoteProps) {
+interface NoteProps {
+  note: NoteData,
+  noteCollection: NoteData[],
+  setNoteCollection: (note: NoteData[]) => void
+}
+
+export function Note({ note, noteCollection, setNoteCollection }: NoteProps) {
+  function dropNote(id: number) {
+    const newNoteCollection: NoteData[] = noteCollection.filter(note => note.id !== id ?? note);
+    setNoteCollection(newNoteCollection);
+  }
+
   return(
     <LiStyleComponent>
       <div>
@@ -17,7 +29,7 @@ export function Note(note: NoteProps) {
         <div>
             <img src={editImg} alt="Icone para editar nota" />
             <img src={bottomArrow} alt="Icone para abrir nota" />
-            <img src={trashCanImg} alt="Icone para excluir nota" />
+            <img src={trashCanImg} alt="Icone para excluir nota" onClick={() => dropNote(note.id)}/>
         </div>
       </div>
       <p>{note.content}</p>
